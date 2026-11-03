@@ -1,0 +1,43 @@
+====================================================================
+KIT COMPLETO PARA SUBIR A CANVA — MIS XV AÑOS KRISELY (RAPUNZEL)
+====================================================================
+
+¿PUEDO SUBIR EL CÓDIGO (.HTML / .CSS / .JS) DIRECTO A CANVA?
+No, Canva no acepta archivos de código. Pero en esta carpeta "canva_kit"
+tienes TODO el proyecto ya convertido en los formatos que Canva sí acepta:
+PDF multipágina, Láminas PNG (1080x1920), GIFs animados y Stickers PNG.
+
+--------------------------------------------------------------------
+FORMA MÁS RÁPIDA (EN 1 SOLO PASO CON EL PDF):
+--------------------------------------------------------------------
+1. Abre https://www.canva.com
+2. Haz clic en el botón "Crear un diseño" -> "Importar archivo"
+3. Selecciona el archivo:
+   canva_kit/Invitacion_XV_Krisely_Completa.pdf
+4. ¡Listo! Canva creará automáticamente las 6 páginas verticales de la
+   invitación. Para publicarla como página web:
+   - Haz clic en "Compartir" -> "Sitio web" -> "Convertir en sitio web".
+
+--------------------------------------------------------------------
+FORMA MANUAL / PERSONALIZADA (CON LÁMINAS PNG + GIFS ANIMADOS):
+--------------------------------------------------------------------
+1. En Canva crea un diseño con tamaño personalizado: 1080 x 1920 px
+   (o elige "Sitio web móvil").
+2. Sube a "Subidos" (Uploads) las carpetas:
+   - 01_Laminas_1080x1920_PNG (las 6 páginas completas)
+   - 02_GIFs_Animados (sol girando, linternas flotantes, ondas de música)
+   - 03_Elementos_Transparentes_PNG (botones, sol dorado, aviso de colores)
+   - source/cancion.m4a (la canción Slipping Through My Fingers - ABBA)
+3. Coloca cada lámina en una página (de la 01 a la 06).
+4. En la Lámina 04 (Ubicaciones), selecciona el botón de Misa o coloca
+   encima "boton_ubicacion_misa.png", haz clic derecho -> "Añadir enlace"
+   y pega el link de la Misa:
+   https://maps.app.goo.gl/Ui2F5ouuKBvs9naP9?g_st=aw
+5. Haz lo mismo para el botón de la Fiesta y pega el link del Salón:
+   https://maps.app.goo.gl/mARhPjckMQXJ9zyk6?g_st=aw
+6. Arrastra los GIFs de "02_GIFs_Animados" donde quieras dar movimiento
+   (por ejemplo, "reproductor_musica_ondas.gif" en la portada o
+   "sol_reino_corona_girando.gif" arriba del nombre).
+7. Arrastra "source/cancion.m4a" a tu diseño para que suene la música.
+8. Haz clic en "Publicar sitio web" arriba a la derecha.
+
