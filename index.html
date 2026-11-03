@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis XV Años - Krisely | 11 de Diciembre</title>
+  <meta name="description" content="Acompáñanos a celebrar los XV Años de Krisely. Viernes 11 de Diciembre." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Lienzo de linternas flotantes y destellos mágicos de Rapunzel -->
+  <canvas id="lanterns-canvas" aria-hidden="true"></canvas>
+
+  <!-- Pantalla de Apertura / Sobre Real (Estilo Invitación Canva) -->
+  <div id="welcome-overlay" class="welcome-overlay">
+    <div class="welcome-card">
+      <div class="corona-sun-crest">
+        <svg viewBox="0 0 200 200" class="sun-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f9e498" />
+              <stop offset="50%" stop-color="#d4af37" />
+              <stop offset="100%" stop-color="#9a7418" />
+            </linearGradient>
+          </defs>
+          <!-- Rayos principales del Sol de Corona (Rapunzel) -->
+          <g fill="url(#goldGrad)">
+            <path d="M100 8 C105 35, 95 45, 100 62 C105 45, 95 35, 100 8 Z" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(22.5 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(45 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(67.5 100 100)" />
+            <path d="M100 8 C112 38, 88 45, 100 62 Z" transform="rotate(90 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(112.5 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(135 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(157.5 100 100)" />
+            <path d="M100 8 C112 38, 88 45, 100 62 Z" transform="rotate(180 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(202.5 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(225 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(247.5 100 100)" />
+            <path d="M100 8 C112 38, 88 45, 100 62 Z" transform="rotate(270 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(292.5 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(315 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(337.5 100 100)" />
+            <circle cx="100" cy="100" r="36" />
+          </g>
+          <circle cx="100" cy="100" r="29" fill="none" stroke="#4a255f" stroke-width="2" opacity="0.45" />
+        </svg>
+      </div>
+      <p class="welcome-subtitle">ESTÁS CORDIALMENTE INVITADO A</p>
+      <h1 class="welcome-title">Mis XV Años</h1>
+      <h2 class="welcome-name">Krisely</h2>
+      <p class="welcome-quote">«Y al fin veo la luz...»</p>
+      <button id="open-invitation-btn" class="btn-royal-seal" type="button">
+        <span class="seal-icon">✦</span>
+        <span>Abrir Invitación</span>
+        <span class="seal-icon">✦</span>
+      </button>
+      <p class="welcome-hint">Toca el botón para ingresar con música</p>
+    </div>
+  </div>
+
+  <!-- Botón Flotante de Música -->
+  <button id="floating-music-btn" class="floating-music-btn" type="button" aria-label="Reproducir o pausar música" title="Música: Slipping Through My Fingers - ABBA">
+    <span class="music-bars" id="music-bars">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span class="music-label">ABBA</span>
+  </button>
+
+  <!-- Audio Principal -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="source/cancion.m4a" type="audio/mp4" />
+    <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/48/a2/05/48a205de-b29e-1445-0f48-3cbab8742e36/mzaf_12204015604604127569.plus.aac.p.m4a" type="audio/mp4" />
+  </audio>
+
+  <main class="invitation-wrapper">
+    <!-- SECCIÓN 1: HERO / PORTADA PRINCIPAL -->
+    <section class="hero-section">
+      <div class="floral-corner floral-top-left" aria-hidden="true"></div>
+      <div class="floral-corner floral-top-right" aria-hidden="true"></div>
+
+      <div class="hero-inner reveal">
+        <div class="tiara-ornament">
+          <svg viewBox="0 0 240 80" class="tiara-svg" aria-hidden="true">
+            <path d="M20 68 Q120 52 220 68" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+            <path d="M55 62 C70 35, 95 25, 120 10 C145 25, 170 35, 185 62" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" />
+            <circle cx="120" cy="10" r="5" fill="#f9e498" />
+            <circle cx="88" cy="34" r="4" fill="#d4af37" />
+            <circle cx="152" cy="34" r="4" fill="#d4af37" />
+            <circle cx="65" cy="48" r="3" fill="#d4af37" />
+            <circle cx="175" cy="48" r="3" fill="#d4af37" />
+            <polygon points="120,22 126,38 142,38 129,47 134,62 120,52 106,62 111,47 98,38 114,38" fill="url(#goldGrad)" />
+          </svg>
+        </div>
+
+        <p class="hero-eyebrow">MIS QUINCE AÑOS</p>
+        <h1 class="hero-name">Krisely</h1>
+
+        <div class="hero-divider">
+          <span class="line"></span>
+          <span class="sun-emblem">☀</span>
+          <span class="line"></span>
+        </div>
+
+        <p class="hero-date-badge">VIERNES · 11 DE DICIEMBRE · 2026</p>
+
+        <!-- Marco de Arco Dorado con Foto Principal -->
+        <div class="hero-arch-frame">
+          <div class="arch-glow"></div>
+          <img
+            src="source/WhatsApp Image 2026-11-03 at 3.33.8 PM.jpeg"
+            alt="Krisely - Mis XV Años"
+            class="hero-portrait"
+          />
+          <div class="arch-floral-badge">✦ XV ✦</div>
+        </div>
+
+        <!-- Reproductor de Música Estilo Canva -->
+        <div class="music-player-card">
+          <p class="music-card-heading">♫ DALE PLAY A MI CANCIÓN ♫</p>
+          <p class="music-song-title">Slipping Through My Fingers</p>
+          <p class="music-song-artist">ABBA</p>
+
+          <div class="player-controls">
+            <button id="player-toggle-btn" class="player-play-btn" type="button" aria-label="Reproducir o pausar canción">
+              <span id="play-icon">▶</span>
+            </button>
+            <div class="player-progress-track" id="progress-track">
+              <div class="player-progress-fill" id="progress-fill"></div>
+            </div>
+            <span class="player-time" id="player-time">0:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: MENSAJE DE CUENTO DE HADAS, PAPÁS Y PADRINOS -->
+    <section class="blessing-section section-card reveal">
+      <div class="corona-sun-mini" aria-hidden="true">☀</div>
+      <p class="fairy-quote">
+        «Hay momentos en la vida que brillan como linternas en el cielo y se vuelven inolvidables cuando los compartimos con las personas que más queremos.»
+      </p>
+
+      <div class="ornate-separator">
+        <span></span>
+        <svg viewBox="0 0 100 30" width="90" height="26" aria-hidden="true">
+          <path d="M5 15 Q35 0 50 15 Q65 30 95 15" fill="none" stroke="#d4af37" stroke-width="2" />
+          <circle cx="50" cy="15" r="4.5" fill="#d4af37" />
+        </svg>
+        <span></span>
+      </div>
+
+      <h2 class="section-subtitle">Con la bendición de Dios y el amor de mis Padres</h2>
+      <div class="names-pair">
+        <p class="person-name">Cristina Salazar Higuera</p>
+        <span class="ampersand">&amp;</span>
+        <p class="person-name">Herman Camacho Sanchez</p>
+      </div>
+
+      <div class="ornate-separator small">
+        <span></span>
+        <span class="star-dot">✦</span>
+        <span></span>
+      </div>
+
+      <h2 class="section-subtitle">Y en compañía de mis Padrinos</h2>
+      <div class="names-pair">
+        <p class="person-name">Maritza Aglaeht Garcia Cabanillas</p>
+        <span class="ampersand">&amp;</span>
+        <p class="person-name">Jesús Eduardo Garcia Higuera</p>
+      </div>
+
+      <p class="blessing-closing">
+        Tenemos el honor de invitarte a celebrar este sueño tan esperado.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 3: CUENTA REGRESIVA -->
+    <section class="countdown-section reveal">
+      <div class="countdown-overlay-card">
+        <p class="eyebrow-gold">TAN SOLO FALTAN</p>
+        <h2 class="section-title-script">Cuenta Regresiva</h2>
+        <p class="countdown-date-label">Viernes 11 de Diciembre de 2026 · 5:30 PM</p>
+
+        <div class="countdown-grid" id="countdown" aria-live="polite">
+          <div class="countdown-item">
+            <div class="countdown-circle">
+              <span class="countdown-number" id="cd-days">00</span>
+            </div>
+            <span class="countdown-unit">Días</span>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle">
+              <span class="countdown-number" id="cd-hours">00</span>
+            </div>
+            <span class="countdown-unit">Horas</span>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle">
+              <span class="countdown-number" id="cd-minutes">00</span>
+            </div>
+            <span class="countdown-unit">Minutos</span>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle">
+              <span class="countdown-number" id="cd-seconds">00</span>
+            </div>
+            <span class="countdown-unit">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: FOTO DESTACADA INTERMEDIA -->
+    <section class="featured-photo-section reveal">
+      <div class="featured-frame">
+        <img
+          src="source/WhsApp Image 2026-11-03 at 3.33.08 PM.jpeg"
+          alt="Sesión fotográfica Krisely"
+          class="featured-img"
+        />
+        <div class="featured-caption">
+          <span>«Persigue tus sueños y deja brillar tu luz»</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: DÓNDE Y CUÁNDO (MISA Y FIESTA) -->
+    <section class="events-section reveal">
+      <p class="eyebrow-gold">DÓNDE &amp; CUÁNDO</p>
+      <h2 class="section-title-script">Itinerario del Gran Día</h2>
+
+      <div class="events-grid">
+        <!-- Tarjeta Misa -->
+        <article class="event-card">
+          <div class="event-icon-wrapper">
+            <svg viewBox="0 0 64 64" class="event-svg" aria-hidden="true">
+              <path d="M32 6 V18 M26 12 H38" stroke="#d4af37" stroke-width="3" stroke-linecap="round" />
+              <path d="M16 32 L32 18 L48 32 V56 H16 Z" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linejoin="round" />
+              <path d="M27 56 V42 C27 39 37 39 37 42 V56" fill="none" stroke="#d4af37" stroke-width="2.5" />
+              <circle cx="32" cy="29" r="3.5" fill="none" stroke="#d4af37" stroke-width="2" />
+            </svg>
+          </div>
+          <p class="event-tag">CEREMONIA RELIGIOSA</p>
+          <h3 class="event-title">Santa Misa</h3>
+          <p class="event-venue">Parroquia del Sagrado Corazón de Jesús</p>
+          <div class="event-time-pill">
+            <span>Viernes 11 de Diciembre</span>
+            <span class="dot">•</span>
+            <strong>5:30 PM</strong>
+          </div>
+          <a
+            href="https://maps.app.goo.gl/Ui2F5ouuKBvs9naP9?g_st=aw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold-map"
+          >
+            <span>📍 Ver Ubicación de la Misa</span>
+          </a>
+        </article>
+
+        <!-- Tarjeta Fiesta -->
+        <article class="event-card">
+          <div class="event-icon-wrapper">
+            <svg viewBox="0 0 64 64" class="event-svg" aria-hidden="true">
+              <path d="M20 14 H30 L27 34 C26 39 21 39 20 34 Z" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linejoin="round" />
+              <path d="M34 14 H44 L44 34 C43 39 38 39 37 34 Z" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linejoin="round" />
+              <path d="M24 38 V52 M18 52 H30" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M40 38 V52 M34 52 H46" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="32" cy="8" r="2" fill="#d4af37" />
+              <circle cx="24" cy="6" r="1.5" fill="#d4af37" />
+              <circle cx="40" cy="6" r="1.5" fill="#d4af37" />
+            </svg>
+          </div>
+          <p class="event-tag">RECEPCIÓN &amp; CELEBRACIÓN</p>
+          <h3 class="event-title">La Fiesta</h3>
+          <p class="event-venue">Salón de Cristal</p>
+          <div class="event-time-pill">
+            <span>Viernes 11 de Diciembre</span>
+            <span class="dot">•</span>
+            <strong>7:00 PM</strong>
+          </div>
+          <a
+            href="https://maps.app.goo.gl/mARhPjckMQXJ9zyk6?g_st=aw"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold-map"
+          >
+            <span>📍 Ver Ubicación de la Fiesta</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: GALERÍA DE FOTOS -->
+    <section class="gallery-section reveal">
+      <p class="eyebrow-gold">MOMENTOS INOLVIDABLES</p>
+      <h2 class="section-title-script">Galería de Krisely</h2>
+      <p class="gallery-subtitle">Toca cualquier fotografía para verla en pantalla completa</p>
+
+      <div class="gallery-mosaic">
+        <figure class="gallery-item item-tall" data-full="source/WhatsApp Image 2026-11-03 .jpeg">
+          <img src="source/WhatsApp Image 2026-11-03 .jpeg" alt="Krisely - Foto 1" loading="lazy" />
+        </figure>
+        <figure class="gallery-item" data-full="source/WhatsApp Image 2026-11-03 at 3.33.08 PM.jpeg">
+          <img src="source/WhatsApp Image 2026-11-03 at 3.33.08 PM.jpeg" alt="Krisely - Foto 2" loading="lazy" />
+        </figure>
+        <figure class="gallery-item" data-full="source/WhatsApp Image 2026-11-03 at 3.33.0.jpeg">
+          <img src="source/WhatsApp Image 2026-11-03 at 3.33.0.jpeg" alt="Krisely - Foto 3" loading="lazy" />
+        </figure>
+        <figure class="gallery-item item-wide" data-full="source/WhatsApp Image 2026-11-03 at 3.33.8 PM.jpeg">
+          <img src="source/WhatsApp Image 2026-11-03 at 3.33.8 PM.jpeg" alt="Krisely - Foto 4" loading="lazy" />
+        </figure>
+        <figure class="gallery-item item-wide" data-full="source/WhsApp Image 2026-11-03 at 3.33.08 PM.jpeg">
+          <img src="source/WhsApp Image 2026-11-03 at 3.33.08 PM.jpeg" alt="Krisely - Foto 5" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7: CÓDIGO DE VESTIMENTA (COLORES RESERVADOS) -->
+    <section class="dresscode-section section-card reveal">
+      <div class="dresscode-icon" aria-hidden="true">👗✨🤵</div>
+      <p class="eyebrow-gold">SUGERENCIA DE VESTIMENTA</p>
+      <h2 class="section-title-script">Código de Vestimenta</h2>
+      <p class="dresscode-type">FORMAL · ELEGANTE</p>
+
+      <div class="reserved-colors-box">
+        <p class="reserved-title">⚠️ NOTA IMPORTANTE DE COLORES RESERVADOS</p>
+        <p class="reserved-desc">
+          El color <strong>Lavanda</strong> y el color <strong>Champagne</strong> están reservados exclusivamente para la Quinceañera. Te agradecemos de corazón <strong>evitar estos tonos</strong> en tu vestimenta:
+        </p>
+
+        <div class="swatches-row">
+          <div class="color-swatch-item">
+            <span class="swatch-circle swatch-lavender">
+              <span class="swatch-ban">✕</span>
+            </span>
+            <span class="swatch-name">Evitar Lavanda</span>
+          </div>
+          <div class="color-swatch-item">
+            <span class="swatch-circle swatch-champagne">
+              <span class="swatch-ban">✕</span>
+            </span>
+            <span class="swatch-name">Evitar Champagne</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 8: CIERRE REAL -->
+    <footer class="footer-section reveal">
+      <div class="corona-sun-crest footer-sun">
+        <svg viewBox="0 0 200 200" class="sun-svg" aria-hidden="true">
+          <g fill="url(#goldGrad)">
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(45 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(90 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(135 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(180 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(225 100 100)" />
+            <path d="M100 8 C108 32, 92 42, 100 62 Z" transform="rotate(270 100 100)" />
+            <path d="M100 14 C112 38, 88 45, 100 62 Z" transform="rotate(315 100 100)" />
+            <circle cx="100" cy="100" r="34" />
+          </g>
+        </svg>
+      </div>
+      <h2 class="footer-name">Krisely</h2>
+      <p class="footer-subtitle">MIS XV AÑOS · 11 DE DICIEMBRE DE 2026</p>
+      <p class="footer-quote">¡Te esperamos para celebrar una noche mágica llena de luz!</p>
+    </footer>
+  </main>
+
+  <!-- Modal Lightbox para Galería -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="Fotografía ampliada de Krisely" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
